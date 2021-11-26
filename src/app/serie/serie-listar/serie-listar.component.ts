@@ -11,6 +11,12 @@ export class SerieListarComponent implements OnInit {
 
   constructor(private serieService: SerieService) { }
   series: Array<Serie> = [];
+  selectedSerie!: Serie;
+  selected = false;
+  onSelected(b: Serie): void {
+    this.selected = true;
+    this.selectedSerie = b;
+  }
 
   getSeries(): void{
     this.serieService.getSeries().subscribe(series=>{
